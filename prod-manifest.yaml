@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: prod-stedi-nate
-          image: gcr.io/cubs-consulting/stedi # This image needs to refer to the NEW Artifact registry repositorry
+          image: us-docker.pkg.dev/cit262-team-404421/nate-api/stedi-api:latest  # This image needs to refer to the NEW Artifact registry repositorry
           env:
             - name: REDIS_PASSWORD
               valueFrom:
@@ -80,14 +80,14 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: prod-stedi-nate-nodeport # This needs to match line 53
+            name: prod-stedi-nate-nodeport # This needs to match line 53. (of what?)
             port:
               number: 80
 ---
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
-  name: prod-stedi-nate-certificate # This needs to match line 68
+  name: prod-stedi-nate-certificate # This needs to match line 68. (where?)
 spec:
   domains:
     - natejohnston.cit262.com # This is a DNS record that has been created
